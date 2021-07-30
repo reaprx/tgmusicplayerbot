@@ -19,6 +19,6 @@ A Telegram Bot to Play Nonstop Radio/Music/YouTube Live in Channel or Group Voic
 
 ## Credits
 
-- [AsmSafone](https://github.com/AsmSafone/RadioPlayer) [Dev]
+- [AsmSafone](https://github.com/AsmSafone/RadioPlayer)
 
 
