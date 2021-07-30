@@ -20,6 +20,6 @@ NOTE: Make Sure You Have Started A Voice Chat In Your Channel/Group Before Deplo
 
 ## Credits
 
-- [AsmSafone](https://github.com/AsmSafone/RadioPlayer)
+- [AsmSafone](https://github.com/AsmSafone)
 
 
