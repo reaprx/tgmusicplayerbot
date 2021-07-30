@@ -26,7 +26,7 @@ from config import Config
 
 CHAT=Config.CHAT
 msg=Config.msg
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Telegram Music Player** \nI Play Radio / Music / YouTube Live In @livemusictg 24x7 Nonstop.\n If You Want Add this Bot To Your Group/Channel contact @reaprx \n Created By @xreapr 😉!"
+HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Telegram Music Player** \n I Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop. \n Made By @xreapr 😉!"
 HELP_TEXT = """
 🎧 **Need Help ?** 
 __(Join @xreapr For Support)__
