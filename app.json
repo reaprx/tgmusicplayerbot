@@ -1,8 +1,8 @@
 {
-  "name": "Telegram Radio Player V3",
-  "description": "An Telegram Bot By Safone to Play Nonstop Radio/Music/YouTube Live in Telegram Voice Chats",
+  "name": "Telegram Music Player",
+  "description": "An Telegram Bot By ReaprX to Play Nonstop Radio/Music/YouTube Live in Telegram Voice Chats",
   "repository": "https://github.com/reaprx/tgmusicplayer",
-  "logo": "https://telegra.ph/file/a3755d9cb09f1361e3ac7.jpg",
+  "logo": "https://telegra.ph/file/eee7e8daf0e95491cad7e.jpg",
   "keywords": [
     "telegram",
     "bot",
@@ -29,7 +29,7 @@
       "required": true
     },
     "SESSION_STRING": {
-      "description": "Session string, use @genStr_robot to generate pyrogram session string",
+      "description": "Pyrogram Session string",
       "required": true
     },
     "CHAT": {

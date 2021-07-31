@@ -25,7 +25,7 @@ playlist=Config.playlist
 
 HELP = """
 🎧 **Need Help ?** 
-__(Join @xreapr For Support)__
+__(Join @xreapr_chat For Support)__
 
 🏷️ **Common Commands** :
 
@@ -52,7 +52,7 @@ __(Join @xreapr For Support)__
 \u2022 `/restart` - restart the bot
 
 © **Powered By** : 
-**@xreapr** 👑
+**@xreapr** 
 """
 
 
@@ -164,14 +164,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data=="help":
         buttons = [
             [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
+                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
+                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayer"),
             ],
             [
                 InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
-            ]
+            ],
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_text(

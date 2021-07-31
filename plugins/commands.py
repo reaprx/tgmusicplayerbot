@@ -26,10 +26,10 @@ from config import Config
 
 CHAT=Config.CHAT
 msg=Config.msg
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Telegram Music Player** \n I Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop. \n Made By @xreapr 😉!"
+HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Telegram Music Player** \nI Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop. Made By @xreapr 😉!"
 HELP_TEXT = """
 🎧 **Need Help ?** 
-__(Join @xreapr For Support)__
+__(Join @xreapr_chat For Support)__
 
 🏷️ **Common Commands** :
 
@@ -65,13 +65,14 @@ async def start(client, message):
     buttons = [
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
+                InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusic1player"),
             ],
             [
                 InlineKeyboardButton("❔ HOW TO USE ❔", callback_data="help"),
-            ]
+            ],
             ]
     reply_markup = InlineKeyboardMarkup(buttons)
     m=await message.reply_photo(photo="https://telegra.ph/file/eee7e8daf0e95491cad7e.jpg", caption=HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
@@ -85,13 +86,14 @@ async def show_help(client, message):
     buttons = [
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
+                InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayer"),
             ],
             [
                 InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
-            ]
+            ],
             ]
     reply_markup = InlineKeyboardMarkup(buttons)
     if msg.get('help') is not None:
@@ -100,7 +102,7 @@ async def show_help(client, message):
     await message.delete()
 @Client.on_message(filters.command(["restart", f"restart@{USERNAME}"]) & filters.user(Config.ADMINS) & (filters.chat(CHAT) | filters.private))
 async def restart(client, message):
-    await message.reply_text("🔄 **Restarting... Join @xreapr!**")
+    await message.reply_text("🔄 **Restarting...**")
     await message.delete()
     process = FFMPEG_PROCESSES.get(CHAT)
     if process:

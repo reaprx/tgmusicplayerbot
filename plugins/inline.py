@@ -30,10 +30,11 @@ buttons = [
             ],
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
+                InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
                 InlineKeyboardButton("🤖 SOURCE CODE 🤖", url="https://github.com/reaprx/tgmusicplayer"),
-            ]
+            ],
          ]
 
 
@@ -45,7 +46,7 @@ async def search(client, query):
             InlineQueryResultArticle(
                 title="Deploy Your Own Radio Player",
                 thumb_url="https://telegra.ph/file/eee7e8daf0e95491cad7e.jpg",
-                input_message_content=InputTextMessageContent(f"{REPLY_MESSAGE}\n\n<b>© Powered By : \n@xreapr 👑</b>", disable_web_page_preview=True),
+                input_message_content=InputTextMessageContent(f"{REPLY_MESSAGE}\n\n<b>© Powered By : \n @xreapr 👑</b>", disable_web_page_preview=True),
                 reply_markup=InlineKeyboardMarkup(buttons)
                 )
             )
