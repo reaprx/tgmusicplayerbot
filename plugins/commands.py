@@ -1,111 +1,112 @@
-"""
-RadioPlayer, Telegram Voice Chat Bot
-Copyright (c) 2021  REAPRX <https://github.com/reaprx>
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+#Copyright (c) 2021 SUBIN
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>
-"""
-
-import os
-import sys
-import signal
-from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client, filters
+import signal
 from utils import USERNAME, FFMPEG_PROCESSES, mp
 from config import Config
-
+import os
+import sys
+import subprocess
+import asyncio
+from signal import SIGINT
+U=USERNAME
 CHAT=Config.CHAT
 msg=Config.msg
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Telegram Music Player** \nI Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop. Made By @xreapr 😉!"
-HELP_TEXT = """
-🎧 **Need Help ?** 
-__(Join @xreapr_chat For Support)__
+HOME_TEXT = "<b>Helo, [{}](tg://user?id={})\n\nIam a MusicPlayer Bot which plays music in @xreapr.\n\nI can even Stream Youtube Live in Voicechat.\n\nHit /help to know about available commands.</b>"
+HELP = """
 
-🏷️ **Common Commands** :
+Use /play <song name> or use /play as a reply to an audio file or youtube link.
 
-\u2022 `/play` - reply to an audio or youTube link to play it or use /play [song name]
-\u2022 `/help` - shows help for commands
-\u2022 `/playlist` - shows the current playlist
-\u2022 `/current` - shows playing time of current track
-\u2022 `/song` [song name] - download the song as audio track
+You can also use /dplay <song name> to play a song from Deezer.</b>
 
-🏷️ **Admin Commands** :
+**Common Commands**:
 
-\u2022 `/skip` [n] - skip current or n where n >= 2
-\u2022 `/join` - join the voice chat
-\u2022 `/leave` - leave the voice chat
-\u2022 `/stop` - stop playing music
-\u2022 `/radio` - start radio stream
-\u2022 `/stopradio` - stop radio stream
-\u2022 `/replay` - play from the beginning
-\u2022 `/clean` - remove unused RAW PCM files
-\u2022 `/pause` - pause playing music
-\u2022 `/resume` - resume playing music
-\u2022 `/mute` - mute the vc userbot
-\u2022 `/unmute` - unmute the vc userbot
-\u2022 `/restart` - restart the bot
+**/play**  Reply to an audio file or YouTube link to play it or use /play <song name>.
+**/dplay** Play music from Deezer, Use /dplay <song name>
+**/player**  Show current playing song.
+**/help** Show help for commands
+**/playlist** Shows the playlist.
 
-© **Powered By** : 
-**@xreapr** 👑
+**Admin Commands**:
+**/skip** [n] ...  Skip current or n where n >= 2
+**/join**  Join voice chat.
+**/leave**  Leave current voice chat
+**/vc**  Check which VC is joined.
+**/stop**  Stop playing.
+**/radio** Start Radio.
+**/stopradio** Stops Radio Stream.
+**/replay**  Play from the beginning.
+**/clean** Remove unused RAW PCM files.
+**/pause** Pause playing.
+**/resume** Resume playing.
+**/volume** Change volume(0-200).
+**/mute**  Mute in VC.
+**/unmute**  Unmute in VC.
+**/restart** Restarts the Bot.
+
+Support GRoup @xreapr_chat
 """
 
 
-@Client.on_message(filters.command(["start", f"start@{USERNAME}"]))
+
+@Client.on_message(filters.command(['start', f'start@{U}']))
 async def start(client, message):
     buttons = [
-            [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
-                InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
-            ],
-            [
-                InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusic1player"),
-            ],
-            [
-                InlineKeyboardButton("❔ HOW TO USE ❔", callback_data="help"),
-            ],
-            ]
+        [
+        InlineKeyboardButton('⚙️ Update Channel', url='https://t.me/xreapr'),
+        InlineKeyboardButton('🤖 Support Group', url='https://t.me/xreapr_chat'),
+    ],
+    [
+        InlineKeyboardButton('👨🏼‍💻 Developer', url='https://t.me/reaprx'),
+        InlineKeyboardButton('🧩 Source', url='https://github.com/reaprx/tgmusicPlayer'),
+    ],
+    [
+        InlineKeyboardButton('👨🏼‍🦯 Help', callback_data='help'),
+        
+    ]
+    ]
     reply_markup = InlineKeyboardMarkup(buttons)
-    m=await message.reply_photo(photo="https://telegra.ph/file/eee7e8daf0e95491cad7e.jpg", caption=HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
+    m=await message.reply(HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
     await mp.delete(m)
-    await message.delete()
+    await mp.delete(message)
 
 
 
-@Client.on_message(filters.command(["help", f"help@{USERNAME}"]))
+@Client.on_message(filters.command(["help", f"help@{U}"]))
 async def show_help(client, message):
     buttons = [
-            [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
-                InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
-            ],
-            [
-                InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayer"),
-            ],
-            [
-                InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
-            ],
-            ]
+        [
+             InlineKeyboardButton('⚙️ Update Channel', url='https://t.me/xreapr'),
+             InlineKeyboardButton('🤖 Support Group', url='https://t.me/xreapr_chat'),
+        ],
+        [
+            InlineKeyboardButton('👨🏼‍💻 Developer', url='https://t.me/reaprx'),
+            InlineKeyboardButton('🧩 Source', url='https://github.com/reaprx/tgmusicPlayer'),
+        ]
+    ]
     reply_markup = InlineKeyboardMarkup(buttons)
     if msg.get('help') is not None:
         await msg['help'].delete()
-    msg['help'] = await message.reply_photo(photo="https://telegra.ph/file/eee7e8daf0e95491cad7e.jpg", caption=HELP_TEXT, reply_markup=reply_markup)
-    await message.delete()
-@Client.on_message(filters.command(["restart", f"restart@{USERNAME}"]) & filters.user(Config.ADMINS) & (filters.chat(CHAT) | filters.private))
+    msg['help'] = await message.reply_text(
+        HELP,
+        reply_markup=reply_markup
+        )
+    await mp.delete(message)
+@Client.on_message(filters.command(["restart", f"restart@{U}"]) & filters.user(Config.ADMINS) & (filters.chat(CHAT) | filters.private))
 async def restart(client, message):
-    await message.reply_text("🔄 **Restarting...**")
-    await message.delete()
+    await message.reply_text("🔄 Restarting...")
+    await mp.delete(message)
     process = FFMPEG_PROCESSES.get(CHAT)
     if process:
-        process.send_signal(signal.SIGTERM) 
+        try:
+            process.send_signal(SIGINT)
+        except subprocess.TimeoutExpired:
+            process.kill()
+        except Exception as e:
+            print(e)
+            pass
+        FFMPEG_PROCESSES[CHAT] = ""
     os.execl(sys.executable, sys.executable, *sys.argv)
     

@@ -1,19 +1,17 @@
 {
-  "name": "Telegram Music Player",
-  "description": "An Telegram Bot By ReaprX to Play Nonstop Radio/Music/YouTube Live in Telegram Voice Chats",
-  "repository": "https://github.com/reaprx/tgmusicplayer",
-  "logo": "https://telegra.ph/file/eee7e8daf0e95491cad7e.jpg",
+  "name": "Telegram Voice Chat Music Player Bot ",
+  "description": "Telegram Bot to Play Audio in Telegram Voice Chats",
+  "repository": "https://github.com/reaprtx/tgmusicplayer",
   "keywords": [
     "telegram",
     "bot",
     "voicechat",
-    "radio",
     "music",
     "python",
     "pyrogram",
     "pytgcalls",
-    "vcradio",
-    "radioplayer"
+    "tgcalls",
+    "voip"
   ],
   "env": {
     "API_ID": {
@@ -28,40 +26,44 @@
       "description": "Bot token of Bot, get from @Botfather",
       "required": true
     },
+    "ARQ_API": {
+      "description": "get it for free from @ARQRobot",
+      "required": false
+    },
     "SESSION_STRING": {
-      "description": "Pyrogram Session string",
+      "description": "Pyrogram Session string ",
       "required": true
     },
     "CHAT": {
-      "description": "ID of Channel or Group where the Bot plays Radio/Music/YouTube Lives",
+      "description": "ID of Channel or Group where the Bot plays Music",
       "required": true
     },
     "LOG_GROUP": {
-      "description": "ID of the group to send playlist if CHAT is a Group, if channel then leave blank",
+      "description": "ID of the group to send playlist If CHAT is a Group, if channel thenleave blank",
       "required": false
     },
     "ADMINS": {
-      "description": "ID of Users who can use Admin commands (for multiple users seperated by space)",
+      "description": "ID of Users who can use Admin commands(for multiple users seperated by space)",
       "required": true
     },
     "ADMIN_ONLY": {
-      "description": "Change it to 'Y' If you want to make /play commands only for admins of CHAT. By default /play is available for all.",
-      "value": "N",
+      "description": "Change it to 'N' if you want to make /play and /dplay available for everyone. By default only admins of CHAT can use it.",
+      "value": "Y",
       "required": false
     },
     "MAXIMUM_DURATION": {
-      "description": "Maximum duration of song to be played using /play command",
+      "description": "Maximum duration of song to be played using /play or /dplay",
       "value": "15",
       "required": false
     },
     "STREAM_URL": {
-      "description": "URL of Radio station or Youtube Live video url to stream with /radio command",
-      "value": "https://youtu.be/13fH5FIs4ok",
-      "required": true
+      "description": "URL of Radio station or Youtube live video url to stream with /radio command",
+      "value": "https://youtu.be/zcrUCvBD16k",
+      "required": false
     },
     "REPLY_MESSAGE": {
       "description": "A reply message to those who message the USER account in PM. Make it blank if you do not need this feature.",
-      "value": "Hello Sir, I'm a bot to play radio/music/youtube live, not having time to chat with you 😂!",
+      "value": "Helo Ser, Iam a bot to play music, not havimg time to chat with you.",
       "required": false
     }
   },

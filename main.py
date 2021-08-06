@@ -1,31 +1,14 @@
-"""
-RadioPlayer, Telegram Voice Chat Bot
-Copyright (c) 2021  REAPRX <https://github.com/reaprx>
+#Copyright (c) 2021 ReaprX
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>
-"""
-
-import os
 from pyrogram import Client, idle
+import os
 from config import Config
 from utils import mp
 from pyrogram.raw import functions, types
 
 CHAT=Config.CHAT
-
 bot = Client(
-    "RadioPlayer",
+    "Musicplayer",
     Config.API_ID,
     Config.API_HASH,
     bot_token=Config.BOT_TOKEN,
@@ -44,79 +27,87 @@ bot.send(
         commands=[
             types.BotCommand(
                 command="start",
-                description="Check Alive"
+                description="Check if bot alive"
             ),
             types.BotCommand(
                 command="help",
-                description="Show Help Message"
+                description="Shows help message"
             ),
             types.BotCommand(
                 command="play",
-                description="Play Song From YouTube/Audio File"
+                description="Play song from youtube/audiofile"
             ),
             types.BotCommand(
-                command="radio",
-                description="Start Radio/YT Live Stream"
+                command="dplay",
+                description="Play song from Deezer"
             ),
             types.BotCommand(
-                command="stopradio",
-                description="Stop Radio/YT Live Stream"
-            ),
-            types.BotCommand(
-                command="current",
-                description="Show Current Playing Song"
+                command="player",
+                description="Shows current playing song with controls"
             ),
             types.BotCommand(
                 command="playlist",
-                description="Show The Current Playlist"
-            ),
-            types.BotCommand(
-                command="song",
-                description="Download Song As Audio File"
+                description="Shows the playlist"
             ),
             types.BotCommand(
                 command="skip",
-                description="Skip The Current Song"
+                description="Skip the current song"
             ),
             types.BotCommand(
                 command="join",
-                description="Join To The Voice Chat"
+                description="Join VC"
             ),
             types.BotCommand(
                 command="leave",
-                description="Leave From The Voice Chat"
+                description="Leave from VC"
+            ),
+            types.BotCommand(
+                command="vc",
+                description="Ckeck if VC is joined"
             ),
             types.BotCommand(
                 command="stop",
-                description="Stop Playing The Music"
+                description="Stops Playing"
+            ),
+            types.BotCommand(
+                command="radio",
+                description="Start radio / Live stream"
+            ),
+            types.BotCommand(
+                command="stopradio",
+                description="Stops radio/Livestream"
             ),
             types.BotCommand(
                 command="replay",
-                description="Replay From The Begining"
+                description="Replay from beggining"
             ),
             types.BotCommand(
                 command="clean",
-                description="Clean Unused RAW Files"
+                description="Cleans RAW files"
             ),
             types.BotCommand(
                 command="pause",
-                description="Pause The Current Song"
+                description="Pause the song"
             ),
             types.BotCommand(
                 command="resume",
-                description="Resume The Paused Song"
+                description="Resume the paused song"
             ),
             types.BotCommand(
                 command="mute",
-                description="Mute Userbot In Voice Chat"
+                description="Mute in VC"
+            ),
+            types.BotCommand(
+                command="volume",
+                description="Set volume between 0-200"
             ),
             types.BotCommand(
                 command="unmute",
-                description="Unmute Userbot In Voice Chat"
+                description="Unmute in VC"
             ),
             types.BotCommand(
                 command="restart",
-                description="Restart The Bot (Owner Only)"
+                description="Restart the bot"
             )
         ]
     )

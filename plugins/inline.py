@@ -1,20 +1,5 @@
-"""
-RadioPlayer, Telegram Voice Chat Bot
-Copyright (c) 2021  REAPRX <https://github.com/reaprx>
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>
-"""
+#Copyright (c) 2021 SUBIN
 
 from pyrogram.handlers import InlineQueryHandler
 from youtubesearchpython import VideosSearch
@@ -22,31 +7,24 @@ from utils import USERNAME
 from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import Client, errors
 from config import Config
-
 REPLY_MESSAGE=Config.REPLY_MESSAGE
 buttons = [
-            [
-                InlineKeyboardButton("❔ HOW TO USE ME ❔", callback_data="help"),
-            ],
-            [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
-                InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
-            ],
-            [
-                InlineKeyboardButton("🤖 SOURCE CODE 🤖", url="https://github.com/reaprx/tgmusicplayer"),
-            ],
-         ]
-
-
+    [
+        InlineKeyboardButton('🧩 Source Code', url='https://github.com/reaprx/tgmusicPlayer'),
+    ],
+    [
+        InlineKeyboardButton('🎧Play Music', url=f'https://t.me/{USERNAME}'),
+        InlineKeyboardButton('👨🏼‍🦯 Help', callback_data='help')       
+    ]
+    ]
 @Client.on_inline_query()
 async def search(client, query):
     answers = []
-    if query.query == "SAF_ONE":
+    if query.query == "__":
         answers.append(
             InlineQueryResultArticle(
-                title="Deploy Your Own Radio Player",
-                thumb_url="https://telegra.ph/file/eee7e8daf0e95491cad7e.jpg",
-                input_message_content=InputTextMessageContent(f"{REPLY_MESSAGE}\n\n<b>© Powered By : \n @xreapr 👑</b>", disable_web_page_preview=True),
+                title="Deploy",
+                input_message_content=InputTextMessageContent(f"{REPLY_MESSAGE}\n\n<b>You can't use this bot in your group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/subinps/MusicPlayer) below.</b>", disable_web_page_preview=True),
                 reply_markup=InlineKeyboardMarkup(buttons)
                 )
             )
@@ -57,7 +35,7 @@ async def search(client, query):
         await client.answer_inline_query(
             query.id,
             results=answers,
-            switch_pm_text=("Type An Song Name ?"),
+            switch_pm_text=("Search a youtube video"),
             switch_pm_parameter="help",
             cache_time=0
         )
@@ -88,7 +66,7 @@ async def search(client, query):
             await query.answer(
                 results=answers,
                 cache_time=0,
-                switch_pm_text=("Error: Search Timed Out!"),
+                switch_pm_text=("Nothing found"),
                 switch_pm_parameter="",
             )
 
