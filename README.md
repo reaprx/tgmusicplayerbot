@@ -1,4 +1,4 @@
-# TG Music Player
+# Music Player
 
 A Telegram Bot to Play Nonstop Radio/Music/YouTube Live in Channel or Group Voice Chats.
 
