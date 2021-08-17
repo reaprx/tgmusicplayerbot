@@ -1,69 +1,68 @@
 {
-  "name": "Telegram Voice Chat Music Player Bot ",
-  "description": "Telegram Bot to Play Audio in Telegram Voice Chats",
-  "repository": "https://github.com/reaprtx/tgmusicplayer",
+  "name": "Telegram Radio Player V3",
+  "description": "An Telegram Bot By Safone to Play Nonstop Radio/Music/YouTube Live in Telegram Voice Chats",
+  "repository": "https://github.com/reaprx/tgmusicplayerbot",
+  "logo": "https://telegra.ph/file/11eb64d304708abbf349b.jpg",
+  "stack": "container",
   "keywords": [
     "telegram",
     "bot",
     "voicechat",
+    "radio",
     "music",
     "python",
     "pyrogram",
     "pytgcalls",
-    "tgcalls",
-    "voip"
+    "vcradio",
+    "radioplayer"
   ],
   "env": {
     "API_ID": {
-      "description": "api_id part of your Telegram API Key from my.telegram.org/apps",
+      "description": "User Accounts Telegram API_ID get it from my.telegram.org/apps",
       "required": true
     },
     "API_HASH": {
-      "description": "api_hash part of your Telegram API Key from my.telegram.org/apps",
+      "description": "User Accounts Telegram API_HASH get it from my.telegram.org/apps",
       "required": true
     },
     "BOT_TOKEN": {
-      "description": "Bot token of Bot, get from @Botfather",
+      "description": "Your Telegram Bot Token, get it from @Botfather XD",
       "required": true
     },
-    "ARQ_API": {
-      "description": "get it for free from @ARQRobot",
-      "required": false
-    },
     "SESSION_STRING": {
-      "description": "Pyrogram Session string ",
+      "description": "User Session String, get it from @genStr_robot. Read readme to learn more",
       "required": true
     },
     "CHAT": {
-      "description": "ID of Channel or Group where the Bot plays Music",
+      "description": "ID of your Channel or Group where the bot plays Radio/Music/YouTube Lives",
       "required": true
     },
     "LOG_GROUP": {
-      "description": "ID of the group to send playlist If CHAT is a Group, if channel thenleave blank",
+      "description": "ID of the group to send playlist if CHAT is a Group, if channel then leave blank",
       "required": false
     },
     "ADMINS": {
-      "description": "ID of Users who can use Admin commands(for multiple users seperated by space)",
+      "description": "ID of Auth Users who can use Admin commands (for multiple users seperated by space)",
       "required": true
     },
     "ADMIN_ONLY": {
-      "description": "Change it to 'N' if you want to make /play and /dplay available for everyone. By default only admins of CHAT can use it.",
-      "value": "Y",
+      "description": "Change it to 'True' If you want to make /play commands only for admins of CHAT. By default /play is available for all.",
+      "value": "False",
       "required": false
     },
     "MAXIMUM_DURATION": {
-      "description": "Maximum duration of song to be played using /play or /dplay",
+      "description": "Maximum Duration of a song to be played by using /play command",
       "value": "15",
       "required": false
     },
     "STREAM_URL": {
-      "description": "URL of Radio station or Youtube live video url to stream with /radio command",
-      "value": "https://youtu.be/zcrUCvBD16k",
+      "description": "URL of Radio Station or Youtube Live video url to stream with /radio command",
+      "value": "http://stream.zeno.fm/by0v698hx38uvs",
       "required": false
     },
     "REPLY_MESSAGE": {
       "description": "A reply message to those who message the USER account in PM. Make it blank if you do not need this feature.",
-      "value": "Helo Ser, Iam a bot to play music, not havimg time to chat with you.",
+      "value": "Hello Sir, I'm a bot to play radio/music/youtube live on telegram voice chat, not having time to chat with you 😂!",
       "required": false
     }
   },
