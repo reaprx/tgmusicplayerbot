@@ -27,7 +27,7 @@ CHAT=Config.CHAT
 ADMINS=Config.ADMINS
 playlist=Config.playlist
 
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **ReaprX Music Player ** \nI Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop. \nCreated By @reaprx 😉!"
+HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **ReaprX Music Player ** \nI Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop."
 HELP_TEXT = """
 🏷️ --**Common Commands**-- :
 
@@ -54,8 +54,7 @@ HELP_TEXT = """
 \u2022 `/unmute` - unmute the vc userbot
 \u2022 `/restart` - update & restart the bot
 
-© **Powered By** : 
-**@xreapr** 👑
+© **Powered By** : **@xreapr** 👑
 """
 
 
@@ -63,7 +62,7 @@ HELP_TEXT = """
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.from_user.id not in Config.ADMINS and query.data != "help":
         await query.answer(
-            "You're Not Allowed! 🤣",
+            "You're Not Allowed!",
             show_alert=True
             )
         return
@@ -171,7 +170,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
-                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk"),
+                InlineKeyboardButton("Listen to FM", url="https://fm.reaprx.tk"),
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
             ],
             [
@@ -197,7 +196,7 @@ async def start(client, message):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
-                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk"),
+                InlineKeyboardButton("Listen to FM", url="https://fm.reaprx.tk"),
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
             ],
             [
@@ -219,7 +218,7 @@ async def help(client, message):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
-                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk"),
+                InlineKeyboardButton("Listen to FM", url="https://fm.reaprx.tk"),
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
             ],
             [
