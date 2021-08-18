@@ -34,7 +34,7 @@ buttons = [
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
-                InlineKeyboardButton("LISTEN TO FM", url="https://www.fm.reaprx.tk"),
+                InlineKeyboardButton("LISTEN TO FM", url="https://fm.reaprx.tk"),
             ]
          ]
 
