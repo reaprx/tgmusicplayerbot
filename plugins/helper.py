@@ -156,8 +156,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
-                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk"),
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
+                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk "),
             ],
             [
                 InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
@@ -185,8 +185,8 @@ async def start(client, message):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
-                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk"),
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
+                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk"),
             ],
             [
                 InlineKeyboardButton("❔ HOW TO USE ❔", callback_data="help"),
@@ -209,9 +209,9 @@ async def help(client, message):
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
-            [
-                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk"),
+            [     
                 InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
+                InlineKeyboardButton("Listen to FM", url="https://www.fm.reaprx.tk"),
             ],
             [
                 InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
