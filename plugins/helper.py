@@ -37,23 +37,6 @@ HELP_TEXT = """
 \u2022 `/current` - shows playing time of current track
 \u2022 `/playlist` - shows the current playlist with controls
 
-🏷️ --**Admin Commands**-- :
-
-\u2022 `/radio` - start radio stream
-\u2022 `/stopradio` - stop radio stream
-\u2022 `/skip` - skip current music
-\u2022 `/join` - join the voice chat
-\u2022 `/leave` - leave the voice chat
-\u2022 `/stop` - stop playing music
-\u2022 `/volume` - change volume (0-200)
-\u2022 `/replay` - play from the beginning
-\u2022 `/clean` - remove unused raw files
-\u2022 `/pause` - pause playing music
-\u2022 `/resume` - resume playing music
-\u2022 `/mute` - mute the vc userbot
-\u2022 `/unmute` - unmute the vc userbot
-\u2022 `/restart` - update & restart the bot
-
 © **Powered By** : **@xreapr** 👑
 """
 
@@ -166,7 +149,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data=="help":
         buttons = [
             [
-                InlineKeyboardButton("Search Songs Inline", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=""),
             ],
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
@@ -195,7 +178,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 async def start(client, message):
     buttons = [
             [
-                InlineKeyboardButton("Search Songs Inline", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=""),
             ],
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
@@ -220,7 +203,7 @@ async def start(client, message):
 async def help(client, message):
     buttons = [
             [
-                InlineKeyboardButton("Search Songs Inline", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=""),
             ],
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
