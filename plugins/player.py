@@ -574,7 +574,7 @@ async def not_chat(_, m: Message):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
-                InlineKeyboardButton("LISTEN TO FM ", url="https://www.fm.reaprx.tk"),
+                InlineKeyboardButton("LISTEN TO FM ", url="https://fm.reaprx.tk"),
             ]
          ]
     k=await m.reply_photo(photo="https://telegra.ph/file/11eb64d304708abbf349b.jpg", caption="**Sorry, You Can't Use This Bot In This Group!**", reply_markup=InlineKeyboardMarkup(buttons))
