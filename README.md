@@ -1,5 +1,6 @@
 # Telegram Music Player
 
+This is a modified version of [Radio Player V3](https://github.com/AsmSafone/RadioPlayerV3)
 
 An Advanced Telegram Bot to Play Nonstop Radio/Music/YouTube Live in Channel or Group Voice Chats.
 
@@ -75,5 +76,5 @@ $ python3 main.py
 
 ## Credits
 
-[ASmsafone](https://github.com/AsmSafone/) for his [Radio Player Bot]Radio Player (https://github.com/AsmSafone/RadioPlayerV3) 
+[ASmsafone](https://github.com/AsmSafone/) for his [Radio Player Bot](https://github.com/AsmSafone/RadioPlayerV3) 
 
