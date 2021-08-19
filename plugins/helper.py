@@ -27,15 +27,15 @@ CHAT=Config.CHAT
 ADMINS=Config.ADMINS
 playlist=Config.playlist
 
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Telegram Music Player ** \nI Can Play Radio / Music / YouTube Live In Channel & Group 24x7 Nonstop. \nCreated By @xeapr 😉!"
+HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Telegram Music Player ** \n I am Playing Radio / Music @xreapr Voice Chat . \n\nCreated By @xeapr 😉!"
 HELP_TEXT = """
 🏷️ --**Commands**-- :
 
-\u2022 ` /play` - use Serch button to play. also you can reply to an audio or youTube link to play it or use /play [song name]
-\u2022 ` /help` - shows help for commands
-\u2022 ` /song` [song name] - download the song as audio track
-\u2022 ` /current` - shows playing time of current track
-\u2022 ` /playlist` - shows the current playlist with controls
+\u2022 `/play` - use Serch button to play songs. Also you can reply to an audio or youTube link to play it or use /play [song name]
+\u2022 `/help` - shows help for commands
+\u2022 `/song` [song name] - download the song as audio track
+\u2022 `/current` - shows playing time of current track
+\u2022 `/playlist` - shows the current playlist with controls
 
 © **Powered By** : **@xreapr** 👑
 """
