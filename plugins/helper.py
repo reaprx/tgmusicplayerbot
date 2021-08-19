@@ -149,7 +149,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data=="help":
         buttons = [
             [
-                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=" "),
             ],
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
@@ -178,7 +178,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 async def start(client, message):
     buttons = [
             [
-                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=" "),
             ],
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
@@ -203,7 +203,7 @@ async def start(client, message):
 async def help(client, message):
     buttons = [
             [
-                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("SEARCH SONGS", switch_inline_query_current_chat=" "),
             ],
             [
                 InlineKeyboardButton("CHANNEL", url="https://t.me/xreapr"),
