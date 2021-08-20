@@ -145,7 +145,7 @@ async def yplay(_, message: Message):
         else:   
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
                 f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-                 \n \nhttps://t.me/xreapr?voicechat "
+                 \n \n https://t.me/xreapr?voicechat "
                 for i, x in enumerate(playlist)
                 ])
         if EDIT_TITLE:
@@ -246,7 +246,7 @@ async def yplay(_, message: Message):
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
                 f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-                 \n \nhttps://t.me/xreapr?voicechat"
+                 \n \n https://t.me/xreapr?voicechat"
                 for i, x in enumerate(playlist)
                 ])
         if EDIT_TITLE:
@@ -273,7 +273,7 @@ async def current(_, m: Message):
     else:
         pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
             f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-            \n \nhttps://t.me/xreapr?voicechat "
+            \n \n https://t.me/xreapr?voicechat "
             for i, x in enumerate(playlist)
             ])
     if m.chat.type == "private":
@@ -347,7 +347,7 @@ async def skip_track(_, m: Message):
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
             f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-             \n \nhttps://t.me/xreapr?voicechat "
+             \n \n https://t.me/xreapr?voicechat "
             for i, x in enumerate(playlist)
             ])
         if m.chat.type == "private":
@@ -377,7 +377,7 @@ async def skip_track(_, m: Message):
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
                     f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-                    \n \nhttps://t.me/xreapr?voicechat "
+                    \n \n https://t.me/xreapr?voicechat "
                     for i, x in enumerate(playlist)
                     ])
             if m.chat.type == "private":
