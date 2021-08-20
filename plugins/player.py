@@ -144,8 +144,7 @@ async def yplay(_, message: Message):
             pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
         else:   
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-                 \n \n https://t.me/xreapr?voicechat "
+                f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         if EDIT_TITLE:
@@ -245,8 +244,7 @@ async def yplay(_, message: Message):
             pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-                 \n \n https://t.me/xreapr?voicechat"
+                f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         if EDIT_TITLE:
@@ -272,8 +270,7 @@ async def current(_, m: Message):
         return
     else:
         pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-            \n \n https://t.me/xreapr?voicechat "
+            f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
     if m.chat.type == "private":
@@ -346,8 +343,7 @@ async def skip_track(_, m: Message):
             pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-             \n \n https://t.me/xreapr?voicechat "
+            f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
         if m.chat.type == "private":
@@ -376,8 +372,7 @@ async def skip_track(_, m: Message):
                 pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}
-                    \n \n https://t.me/xreapr?voicechat "
+                    f"**{i}**. **{x[1]}**\n  - **Requested By:** {x[4]}"
                     for i, x in enumerate(playlist)
                     ])
             if m.chat.type == "private":
