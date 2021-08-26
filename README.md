@@ -1,7 +1,5 @@
 # Telegram Music Player
 
-- [Try Bot](https://t.me/reapermusicbot)
-
 - This is a modified version of [Radio Player V3](https://github.com/AsmSafone/RadioPlayerV3)
 
 - NOTE: Make Sure You Have Started A Voice Chat In Your Channel/Group Before Deploying!
