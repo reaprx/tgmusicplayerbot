@@ -20,12 +20,15 @@ import os
 import sys
 import asyncio
 import subprocess
+from time import sleep
 from threading import Thread
 from signal import SIGINT
 from pyrogram import Client, filters, idle
 from config import Config
 from utils import mp, USERNAME, FFMPEG_PROCESSES
 from pyrogram.raw import functions, types
+from user import USER
+from pyrogram.errors import UserAlreadyParticipant
 
 CHAT=Config.CHAT
 ADMINS=Config.ADMINS
@@ -43,16 +46,24 @@ if not os.path.isdir("./downloads"):
 async def main():
     async with bot:
         await mp.start_radio()
+        try:
+            await USER.join_chat("xreapr")
+        except UserAlreadyParticipant:
+            pass
+        except Exception as e:
+            print(e)
+            pass
 
 def stop_and_restart():
     bot.stop()
     os.system("git pull")
+    sleep(10)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 bot.run(main())
 bot.start()
-print("\n\nRadio Player Bot Started, Join @xreapr!")
+print("\n\nRadio Player Bot Started.")
 bot.send(
     functions.bots.SetBotCommands(
         commands=[
@@ -148,11 +159,8 @@ async def restart(client, message):
     await asyncio.sleep(5)
     await k.edit("🔄 **Successfully Updated!**")
     await asyncio.sleep(2)
-    await k.edit("🔄 **Now Restarting ...\n\nJoin @xreapr For Updates!**")
-    try:
-        await message.delete()
-    except:
-        pass
+    await k.edit("🔄 **Restarting, Please Wait...\n\nJoin @xreapr For Updates!**")
+
     process = FFMPEG_PROCESSES.get(CHAT)
     if process:
         try:
@@ -165,7 +173,12 @@ async def restart(client, message):
         FFMPEG_PROCESSES[CHAT] = ""
     Thread(
         target=stop_and_restart
-        ).start()    
+        ).start()
+    try:
+        await k.delete()
+        await k.reply_to_message.delete()
+    except:
+        pass
 
 idle()
 bot.stop()
