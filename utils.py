@@ -24,7 +24,6 @@ from pyrogram import emoji
 from pyrogram.methods.messages.download_media import DEFAULT_DOWNLOAD_DIR
 from pytgcalls import GroupCallFactory
 from config import Config
-from asyncio import sleep
 from pyrogram import Client
 from youtube_dl import YoutubeDL
 from os import path
