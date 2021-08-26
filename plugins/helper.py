@@ -27,7 +27,7 @@ CHAT=Config.CHAT
 ADMINS=Config.ADMINS
 playlist=Config.playlist
 
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Telegram Music Player ** \n I am Playing Radio / Music @xreapr Voice Chat . \n\nCreated By @xeapr 😉!"
+HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm a **Music Player Bot** \n I am Playing Radio / Music in Voice Chats . \n\nCreated By @xeapr 😉!"
 HELP_TEXT = """
 🏷️ --**Common Commands**-- :
 
@@ -36,6 +36,23 @@ HELP_TEXT = """
 \u2022 `/song` [song name] - download the song as audio track
 \u2022 `/current` - shows playing time of current track
 \u2022 `/playlist` - shows the current playlist with controls
+
+🏷️ --**Admin Commands**-- :
+
+\u2022 `/radio` - start radio stream
+\u2022 `/stopradio` - stop radio stream
+\u2022 `/skip` - skip current music
+\u2022 `/join` - join the voice chat
+\u2022 `/leave` - leave the voice chat
+\u2022 `/stop` - stop playing music
+\u2022 `/volume` - change volume (0-200)
+\u2022 `/replay` - play from the beginning
+\u2022 `/clean` - remove unused raw files
+\u2022 `/pause` - pause playing music
+\u2022 `/resume` - resume playing music
+\u2022 `/mute` - mute the vc userbot
+\u2022 `/unmute` - unmute the vc userbot
+\u2022 `/restart` - update & restart the bot
 
 © **Powered By** : **@xreapr** 👑
 """
@@ -156,8 +173,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
+                InlineKeyboardButton("Developer", url="https://github.com/reaprx"),
                 InlineKeyboardButton("Listen to FM", url="https://fm.reaprx.tk"),
-                InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
             ],
             [
                 InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
@@ -185,8 +202,8 @@ async def start(client, message):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
+               InlineKeyboardButton("Developer", url="https://github.com/reaprx"),
                 InlineKeyboardButton("Listen to FM", url="https://fm.reaprx.tk"),
-                InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
             ],
             [
                 InlineKeyboardButton("❔ HOW TO USE ❔", callback_data="help"),
@@ -210,8 +227,8 @@ async def help(client, message):
                 InlineKeyboardButton("SUPPORT", url="https://t.me/xreapr_chat"),
             ],
             [
+                InlineKeyboardButton("Developer", url="https://github.com/reaprx"),
                 InlineKeyboardButton("Listen to FM", url="https://fm.reaprx.tk"),
-                InlineKeyboardButton("SOURCE CODE", url="https://github.com/reaprx/tgmusicplayerbot"),
             ],
             [
                 InlineKeyboardButton("CLOSE 🔐", callback_data="close"),
