@@ -151,34 +151,12 @@ bot.send(
     )
 )
 
-@bot.on_message(filters.command(["restart", f"restart@{USERNAME}"]) & filters.user(ADMINS) & (filters.chat(CHAT) | filters.private | filters.chat(LOG_GROUP)))
-async def restart(client, message):
-    k=await message.reply_text("🔄 **Checking Updates ...**")
-    await asyncio.sleep(3)
-    await k.edit("🔄 **Updating, Please Wait...**")
-    await asyncio.sleep(5)
-    await k.edit("🔄 **Successfully Updated!**")
-    await asyncio.sleep(2)
-    await k.edit("🔄 **Restarting, Please Wait...\n\nJoin @xreapr For Updates!**")
-
-    process = FFMPEG_PROCESSES.get(CHAT)
-    if process:
-        try:
-            process.send_signal(SIGINT)
-        except subprocess.TimeoutExpired:
-            process.kill()
-        except Exception as e:
-            print(e)
-            pass
-        FFMPEG_PROCESSES[CHAT] = ""
+@bot.on_message(filters.command(["restart", f"restart@{USERNAME}"])  & filters.user(ADMINS) & (filters.chat(CHAT) | filters.private | filters.chat(LOG_GROUP)))
+def restart(client, message):
+    message.reply_text("Updating Bot...")
     Thread(
         target=stop_and_restart
         ).start()
-    try:
-        await k.delete()
-        await k.reply_to_message.delete()
-    except:
-        pass
 
 idle()
 bot.stop()
