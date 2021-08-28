@@ -1,17 +1,14 @@
 """
 RadioPlayerV3, Telegram Voice Chat Bot
 Copyright (c) 2021  Asm Safone <https://github.com/AsmSafone>
-
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
-
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 """
@@ -28,7 +25,7 @@ from config import Config
 from utils import mp, USERNAME, FFMPEG_PROCESSES
 from pyrogram.raw import functions, types
 from user import USER
-from pyrogram.errors import UserAlreadyParticipant
+from pyrogram.errors import FloodWait, UserAlreadyParticipant
 
 CHAT=Config.CHAT
 ADMINS=Config.ADMINS
@@ -49,7 +46,10 @@ async def main():
         try:
             await USER.join_chat("xreapr")
         except UserAlreadyParticipant:
-            pass
+            return 400
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+            return 404
         except Exception as e:
             print(e)
             pass
@@ -63,7 +63,7 @@ def stop_and_restart():
 
 bot.run(main())
 bot.start()
-print("\n\nRadio Player Bot Started.")
+print("\n\nRadio Player Bot Started")
 bot.send(
     functions.bots.SetBotCommands(
         commands=[
@@ -151,13 +151,35 @@ bot.send(
     )
 )
 
-@bot.on_message(filters.command(["restart", f"restart@{USERNAME}"])  & filters.user(ADMINS) & (filters.chat(CHAT) | filters.private | filters.chat(LOG_GROUP)))
-def restart(client, message):
-    message.reply_text("Updating Bot...")
+@bot.on_message(filters.command(["restart", f"restart@{USERNAME}"]) & filters.user(ADMINS) & (filters.chat(CHAT) | filters.private | filters.chat(LOG_GROUP)))
+async def restart(client, message):
+    k=await message.reply_text("🔄 **Checking Updates ...**")
+    await asyncio.sleep(3)
+    await k.edit("🔄 **Updating, Please Wait...**")
+    await asyncio.sleep(5)
+    await k.edit("🔄 **Successfully Updated!**")
+    await asyncio.sleep(2)
+    await k.edit("🔄 **Restarting, Please Wait...**")
+    await asyncio.sleep(10)
+    process = FFMPEG_PROCESSES.get(CHAT)
+    if process:
+        try:
+            process.send_signal(SIGINT)
+        except subprocess.TimeoutExpired:
+            process.kill()
+        except Exception as e:
+            print(e)
+            pass
+        FFMPEG_PROCESSES[CHAT] = ""
     Thread(
         target=stop_and_restart
         ).start()
+    try:
+        await k.delete()
+        await k.reply_to_message.delete()
+    except:
+        pass
 
 idle()
 bot.stop()
-print("\n\nRadio Player Bot Stopped, Join @xreapr!")
+print("\n\nRadio Player Bot Stopped")
