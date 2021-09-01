@@ -27,7 +27,7 @@ CHAT=Config.CHAT
 ADMINS=Config.ADMINS
 playlist=Config.playlist
 
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm a **Music Player Bot** \n I am Playing Radio / Music in Voice Chats . \n\nCreated By @xeapr 😉!"
+HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm a **Music Player Bot** \n I am Playing Radio / Music in Voice Chats . \n\nCreated By @xreapr 😉!"
 HELP_TEXT = """
 🏷️ --**Common Commands**-- :
 
